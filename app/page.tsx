@@ -1,65 +1,131 @@
+"use client";
+
+// import ArticleCard from "@/components/ArticleCard/ArticleCard";
+// import DestinationCard from "@/components/DestinationCard/DestinationCard";
+// import Footer from "@/components/Footer/Footer";
+// import Navbar from "@/components/Navbar/Navbar";
+// import TripCard from "@/components/TripCard/TripCard";
 import Image from "next/image";
+import React from "react";
+
+import feature1 from "@/app/assets/feature1.png";
+import feature2 from "@/app/assets/feature2.png";
+import feature3 from "@/app/assets/feature3.png";
+import photo from "@/app/assets/photo.jpg";
+
+import { articleData, destinationData, tripdata } from "@/constant";
+import ArticleCard from "./components/ArticleCard";
+import BgHeader from "./components/BgHeader";
+import DestinationCard from "./components/DestinationCard";
+import Footer from "./components/Footer";
+import MenuMobile from "./components/MenuMobile";
+import Navbar from "./components/Navbar";
+import StandardForm from "./components/StandardForm";
+import TripCard from "./components/TripCard";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="relative">
+      {/* MAIN CONTENT */}
+      <div className={`transition-all duration-200 isToggleMenu`}>
+        <Navbar />
+        <BgHeader>
+          <video
+            className="w-full h-full object-cover"
+            preload="auto"
+            playsInline
+            autoPlay
+            muted
+            loop
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <source src="/bgvideo.mp4" type="video/mp4" />
+          </video>
+
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white w-full max-w-356.25 mx-auto px-22.5 max-md:px-7.5">
+            <h2 className="text-4xl font-bold">Where do you want to go?</h2>
+            <div className="mt-2 text-base opacity-90">
+              Trips, experiences, and places. All in one service.
+            </div>
+            <StandardForm />
+          </div>
+        </BgHeader>
+
+        <Section
+          title="Popular Destinations"
+          subtitle="World's best tourist destinations"
+        >
+          <div className="grid grid-cols-4 gap-8 max-md:grid-cols-1">
+            {destinationData.map((item, i) => (
+              <DestinationCard key={i} data={item} />
+            ))}
+          </div>
+        </Section>
+
+        <Section title="Best Value Trips" subtitle="Best offers trips from us">
+          <div className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
+            {tripdata.map((item, i) => (
+              <TripCard key={i} data={item} />
+            ))}
+          </div>
+        </Section>
+
+        <Section
+          title="Why Choose Us"
+          subtitle="Here are reasons you should plan trip with us"
+        >
+          <div className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
+            {[feature1, feature2, feature3].map((img, i) => (
+              <div key={i} className="mb-10 text-center">
+                <Image src={img} alt="feature" className="mx-auto w-35 h-35" />
+                <h4 className="pt-5 text-xl font-extrabold">Feature Title</h4>
+                <p className="py-3 text-[15px] text-[#222]">
+                  Lorem ipsum dolor sit amet, consect adipiscing elit.
+                </p>
+              </div>
+            ))}
+          </div>
+        </Section>
+        <div className="max-w-311.25 mx-auto px-22.5 max-md:px-7.5">
+          <Image src={photo} alt="photo" />
         </div>
-      </main>
+
+        <Section
+          title="Articles & Tips"
+          subtitle="Explore some of the best tips from around the world"
+        >
+          <div className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
+            {articleData.map((item, i) => (
+              <ArticleCard key={i} data={item} />
+            ))}
+          </div>
+        </Section>
+
+        <Footer />
+      </div>
+
+      {/* MOBILE MENU */}
+      <MenuMobile />
     </div>
   );
 }
+
+/* =================== */
+/* SECTION COMPONENT */
+/* =================== */
+const Section = ({
+  title,
+  subtitle,
+  children,
+}: {
+  title: string;
+  subtitle: string;
+  children: React.ReactNode;
+}) => (
+  <section className="max-w-311.25 mx-auto px-22.5 max-md:px-7.5 text-center">
+    <div className="mt-17.5 mb-12.5 max-md:my-10">
+      <h2 className="text-4xl font-bold">{title}</h2>
+      <div className="text-[15px] text-[#8D9199]">{subtitle}</div>
+    </div>
+    {children}
+  </section>
+);
