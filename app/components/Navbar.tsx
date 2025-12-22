@@ -3,6 +3,7 @@
 import { useAppDispatch } from "@/app/redux/hooks";
 import { toggle } from "@/app/redux/slices/toggleMenuSlice";
 import clsx from "clsx";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Fragment, useEffect, useRef, useState } from "react";
 
@@ -140,7 +141,7 @@ const Navbar = () => {
 
                 return (
                   <li key={idx} className="relative group">
-                    <a
+                    <Link
                       href={item?.href}
                       className={clsx(
                         "flex items-center px-4 py-6 text-[13px] font-medium transition-colors",
@@ -169,7 +170,7 @@ const Navbar = () => {
                           />
                         </svg>
                       )}
-                    </a>
+                    </Link>
 
                     {/* SUBMENU */}
                     {!!item?.subMenus?.length && (

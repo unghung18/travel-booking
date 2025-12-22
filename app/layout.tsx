@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import MenuMobile from "./components/MenuMobile";
 import ReduxProvider from "./redux/provider";
 import "./styles/globals.css";
 
@@ -22,7 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReduxProvider>
-        <body className={`${poppins.variable} antialiased`}>{children}</body>
+        <body className={`${poppins.variable} antialiased`}>
+          {children}
+
+          {/* MOBILE MENU */}
+          <MenuMobile />
+        </body>
       </ReduxProvider>
     </html>
   );

@@ -13,12 +13,11 @@ const Footer = () => {
     <footer className="mt-17.5 bg-black text-white py-12.5">
       {/* Widgets */}
       <ul
-        className="
-          grid grid-cols-1 gap-7.5 max-w-311.25 mx-auto px-5 md:grid-cols-3 md:px-7.5 lg:px-22.5"
-      >
+        className="grid grid-cols-1 gap-7.5 max-w-311.25 mx-auto px-5 md:grid-cols-3 md:px-7.5 lg:px-22.5"
+      >     
         {/* Our Awards */}
         <li>
-          <h2 className="my-2.5 text-[18px">Our Awards</h2>
+      <h2 className="my-2.5 text-[18px">Our Awards</h2>
           <p className="py-2 text-[15px] text-[#CCCCCC] font-extralight">
             London is a megalopolis of people, ideas and frenetic energy. The
             capital and largest city of the United Kingdom.

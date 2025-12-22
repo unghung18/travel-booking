@@ -1,10 +1,5 @@
 "use client";
 
-// import ArticleCard from "@/components/ArticleCard/ArticleCard";
-// import DestinationCard from "@/components/DestinationCard/DestinationCard";
-// import Footer from "@/components/Footer/Footer";
-// import Navbar from "@/components/Navbar/Navbar";
-// import TripCard from "@/components/TripCard/TripCard";
 import Image from "next/image";
 import React from "react";
 
@@ -15,7 +10,6 @@ import photo from "@/app/assets/photo.jpg";
 
 import { articleData, destinationData, tripdata } from "@/constant";
 import ArticleCard from "./components/ArticleCard";
-import BgHeader from "./components/BgHeader";
 import DestinationCard from "./components/DestinationCard";
 import Footer from "./components/Footer";
 import MenuMobile from "./components/MenuMobile";
@@ -29,26 +23,29 @@ export default function Home() {
       {/* MAIN CONTENT */}
       <div className={`transition-all duration-200 isToggleMenu`}>
         <Navbar />
-        <BgHeader>
-          <video
-            className="w-full h-full object-cover"
-            preload="auto"
-            playsInline
-            autoPlay
-            muted
-            loop
-          >
-            <source src="/bgvideo.mp4" type="video/mp4" />
-          </video>
 
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white w-full max-w-356.25 mx-auto px-22.5 max-md:px-7.5">
-            <h2 className="text-4xl font-bold">Where do you want to go?</h2>
-            <div className="mt-2 text-base opacity-90">
-              Trips, experiences, and places. All in one service.
+        <div className="w-full h-screen overflow-hidden">
+          <div className="relative w-full h-full">
+            <video
+              className="w-full h-full object-cover"
+              preload="auto"
+              playsInline
+              autoPlay
+              muted
+              loop
+            >
+              <source src="/bgvideo.mp4" type="video/mp4" />
+            </video>
+
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white w-full max-w-356.25 mx-auto px-22.5 max-md:px-7.5">
+              <h2 className="text-4xl font-bold">Where do you want to go?</h2>
+              <div className="mt-2 text-base opacity-90">
+                Trips, experiences, and places. All in one service.
+              </div>
+              <StandardForm />
             </div>
-            <StandardForm />
           </div>
-        </BgHeader>
+        </div>
 
         <Section
           title="Popular Destinations"
@@ -103,8 +100,7 @@ export default function Home() {
         <Footer />
       </div>
 
-      {/* MOBILE MENU */}
-      <MenuMobile />
+   
     </div>
   );
 }

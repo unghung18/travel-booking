@@ -1,7 +1,35 @@
-const BgHeader = ({ children }: { children: React.ReactNode }) => {
+import Image, { StaticImageData } from "next/image";
+
+type props = {
+  type: "VIDEO" | "IMAGE";
+  label: string;
+  desc: string;
+  file: StaticImageData;
+};
+
+const BgHeader = ({ label, desc, file, type }: props) => {
   return (
-    <div className="w-full h-screen overflow-hidden">
-      <div className="relative w-full h-full">{children}</div>
+    <div className="w-full h-137.5 relative overflow-hidden">
+      {type === "IMAGE" && (
+        <Image
+          src={file}
+          alt="bg-image"
+          className="w-full h-full bg-cover bg-no-repeat bg-center"
+        />
+      )}
+
+      {type === "VIDEO" && (
+        <iframe
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-screen min-h-screen w-[177.78vh] h-[100vw] pointer-events-none"
+          src="https://www.youtube.com/embed/9HTEZkTA11Q?autoplay=1&mute=1&controls=0&loop=1&playlist=9HTEZkTA11Q&modestbranding=1&playsinline=1"
+          allow="autoplay"
+        />
+      )}
+
+      <div className="absolute top-3/4 left-1/2 -translate-x-1/2 text-center text-white w-full max-w-356.25 mx-auto px-22.5 max-md:px-7.5">
+        <h2 className="text-4xl font-bold">{label}</h2>
+        <div className="mt-2 text-base opacity-90">{desc}</div>
+      </div>
     </div>
   );
 };
