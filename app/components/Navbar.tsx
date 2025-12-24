@@ -113,7 +113,7 @@ const Navbar = () => {
       <div
         ref={headerRef}
         className={clsx(
-          "transition-all duration-500",
+          "transition-all duration-500 px-22.5 max-lg:px-7.5",
           scrollState === "top" && "bg-transparent",
           scrollState === "up" && "bg-white",
           scrollState === "down" && "-translate-y-25 opacity-0"
@@ -132,7 +132,7 @@ const Navbar = () => {
 
           {/* NAV */}
           <div className="flex items-center">
-            <ul className="hidden md:flex">
+            <ul className="flex max-[860px]:hidden">
               {MENU.map((item, idx: number) => {
                 const isActive =
                   item.href === "/"

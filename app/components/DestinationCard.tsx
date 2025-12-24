@@ -1,8 +1,14 @@
 import Image from "next/image";
-
-const DestinationCard = ({ data }: { data: any }) => {
+import Link from "next/link";
+type props = {
+  id?: number;
+  title: string;
+  image: any;
+};
+const DestinationCard = ({ id, title, image }: props) => {
   return (
-    <div
+    <Link
+      href={`/destinations/${id}`}
       className="
         relative h-75 overflow-hidden rounded-[5px] cursor-pointer
         transition-all duration-200
@@ -11,7 +17,7 @@ const DestinationCard = ({ data }: { data: any }) => {
       "
     >
       <Image
-        src={data.image}
+        src={image}
         alt="card"
         fill
         className="object-cover brightness-[0.8]"
@@ -24,9 +30,9 @@ const DestinationCard = ({ data }: { data: any }) => {
           text-white font-extrabold
         "
       >
-        {data.title}
+        {title}
       </h2>
-    </div>
+    </Link>
   );
 };
 

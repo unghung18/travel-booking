@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <ReduxProvider>
         <body className={`${poppins.variable} antialiased`}>
-          {children}
+          <div className="isToggleMenu">{children}</div>
 
           {/* MOBILE MENU */}
           <MenuMobile />
