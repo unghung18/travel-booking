@@ -178,7 +178,7 @@ const StandardForm = () => {
             }
           />
         </svg>
-        <span className="ml-1.5 text-[13px]">Advanced Search</span>
+        <span className="ml-1.5 text-sm">Advanced Search</span>
       </div>
     </form>
   );

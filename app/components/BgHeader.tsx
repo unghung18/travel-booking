@@ -6,7 +6,7 @@ import { useState } from "react";
 type props = {
   type: "VIDEO" | "IMAGE";
   label: string;
-  desc: string;
+  desc?: string;
   imageFile?: StaticImageData;
   videoKey?: string;
 };
@@ -47,9 +47,9 @@ const BgHeader = ({ label, desc, imageFile, videoKey, type }: props) => {
         </>
       )}
 
-      <div className="absolute top-3/4 left-1/2 -translate-x-1/2 text-center text-white w-full max-w-356.25 mx-auto px-22.5 max-md:px-7.5">
-        <h2 className="text-4xl font-bold">{label}</h2>
-        <div className="mt-2 text-base opacity-90">{desc}</div>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center text-white w-full max-w-356.25 mx-auto px-22.5 max-md:px-7.5">
+        <h1 className="text-4xl font-bold">{label}</h1>
+        {desc && <div className="mt-2 text-base opacity-90">{desc}</div>}
       </div>
     </div>
   );

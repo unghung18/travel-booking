@@ -144,7 +144,7 @@ const Navbar = () => {
                     <Link
                       href={item?.href}
                       className={clsx(
-                        "flex items-center px-4 py-6 text-[13px] font-medium transition-colors",
+                        "flex items-center px-4 py-6 text-xs font-medium transition-colors",
                         isActive
                           ? "text-[#FF4A52]"
                           : scrollState === "up"
@@ -179,7 +179,7 @@ const Navbar = () => {
                           <Fragment key={idx}>
                             <li
                               className={clsx(
-                                "cursor-pointer block py-2.5 text-black text-left text-[13px] font-semibold no-underline transition-colors duration-200 hover:text-[#FF4A52]"
+                                "cursor-pointer block py-2.5 text-black text-left text-sm font-semibold no-underline transition-colors duration-200 hover:text-[#FF4A52]"
                               )}
                             >
                               {subMenu?.label}
@@ -216,7 +216,7 @@ const Navbar = () => {
 
             {/* CART */}
             <div className="relative ml-4">
-              <span className="absolute -top-2 -right-2 w-4 h-4 text-[10px] rounded-full bg-red-500 text-white flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 w-4 h-4 text-[0.63rem] rounded-full bg-red-500 text-white flex items-center justify-center">
                 0
               </span>
 

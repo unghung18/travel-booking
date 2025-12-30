@@ -22,13 +22,11 @@ const ArticleCard = ({ data }: { data: Partial<articleDataProps> }) => {
       )}
 
       <div className="px-7.5 py-5 text-left">
-        <div className="text-[12px] font-bold">{data.time}</div>
+        <div className="text-xs font-bold">{data.time}</div>
 
-        <h6 className="text-[20px] font-extrabold my-1.25 mb-5">
-          {data.title}
-        </h6>
+        <h6 className="text-xl font-extrabold my-1.25 mb-5">{data.title}</h6>
 
-        <p className="text-[15px] text-[#222222] pb-5">{data.content}</p>
+        <p className="text-[#222222] pb-5">{data.content}</p>
 
         <div
           className="
@@ -39,7 +37,7 @@ const ArticleCard = ({ data }: { data: Partial<articleDataProps> }) => {
             group-hover:opacity-100
           "
         >
-          <span className="text-[15px] text-[#222222]">Read More</span>
+          <span className="text-[#222222]">Read More</span>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -12,13 +12,11 @@ const Footer = () => {
   return (
     <footer className="mt-17.5 bg-black text-white py-12.5">
       {/* Widgets */}
-      <ul
-        className="grid grid-cols-1 gap-7.5 max-w-311.25 mx-auto px-5 md:grid-cols-3 md:px-7.5 lg:px-22.5"
-      >     
+      <ul className="grid grid-cols-1 gap-7.5 max-w-311.25 mx-auto px-5 md:grid-cols-3 md:px-7.5 lg:px-22.5">
         {/* Our Awards */}
         <li>
-      <h2 className="my-2.5 text-[18px">Our Awards</h2>
-          <p className="py-2 text-[15px] text-[#CCCCCC] font-extralight">
+          <h2 className="my-2.5 text-lg">Our Awards</h2>
+          <p className="py-2 text-[#CCCCCC] font-extralight">
             London is a megalopolis of people, ideas and frenetic energy. The
             capital and largest city of the United Kingdom.
           </p>
@@ -27,9 +25,9 @@ const Footer = () => {
 
         {/* Contact Info */}
         <li>
-          <h2 className="my-2.5 text-[18px]">Contact Info</h2>
+          <h2 className="my-2.5 text-lg">Contact Info</h2>
 
-          <p className="flex items-center py-2 text-[15px] text-[#CCCCCC] font-extralight">
+          <p className="flex items-center py-2 text-[#CCCCCC] font-extralight">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -47,7 +45,7 @@ const Footer = () => {
             1-567-124-44227
           </p>
 
-          <p className="flex items-center py-2 text-[15px] text-[#CCCCCC] font-extralight">
+          <p className="flex items-center py-2 text-[#CCCCCC] font-extralight">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -70,7 +68,7 @@ const Footer = () => {
             184 Main Street East Perl Habour 8007
           </p>
 
-          <p className="flex items-center py-2 text-[15px] text-[#CCCCCC] font-extralight">
+          <p className="flex items-center py-2 text-[#CCCCCC] font-extralight">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -91,7 +89,7 @@ const Footer = () => {
 
         {/* Recent Trips */}
         <li>
-          <h2 className="my-2.5 text-[18px]">Recent Trips</h2>
+          <h2 className="my-2.5 text-lg">Recent Trips</h2>
           <ul className="grid grid-cols-3 gap-1.75">
             {[
               recenttrip1,

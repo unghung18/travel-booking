@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import React from "react";
 
@@ -8,15 +6,20 @@ import feature2 from "@/app/assets/feature2.png";
 import feature3 from "@/app/assets/feature3.png";
 import photo from "@/app/assets/photo.jpg";
 
-import { articleData, destinationData, tripdata } from "@/constant";
+import { DestinationService } from "@/app/services/destinations";
+import { articleData } from "@/constant";
 import ArticleCard from "./components/ArticleCard";
 import DestinationCard from "./components/DestinationCard";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import StandardForm from "./components/StandardForm";
-import TripCard from "./components/TripCard";
 
-export default function Home() {
+export default async function Home() {
+  const destinations = await DestinationService.getPopular({
+    page: 0,
+    size: 4,
+  });
+
   return (
     <div className="relative">
       {/* MAIN CONTENT */}
@@ -52,8 +55,8 @@ export default function Home() {
             subtitle="World's best tourist destinations"
           >
             <div className="grid grid-cols-4 gap-8 max-md:grid-cols-1">
-              {destinationData.slice(0, 4).map((item, i) => (
-                <DestinationCard key={i} {...item} />
+              {(destinations?.content ?? []).map((item, idx: number) => (
+                <DestinationCard key={idx} {...item} />
               ))}
             </div>
           </Section>
@@ -62,9 +65,9 @@ export default function Home() {
             subtitle="Best offers trips from us"
           >
             <div className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
-              {tripdata.map((item, i) => (
+              {/* {tripdata.map((item, i) => (
                 <TripCard key={i} data={item} />
-              ))}
+              ))} */}
             </div>
           </Section>
           <Section
@@ -80,7 +83,7 @@ export default function Home() {
                     className="mx-auto w-35 h-35"
                   />
                   <h4 className="pt-5 text-xl font-extrabold">Feature Title</h4>
-                  <p className="py-3 text-[15px] text-[#222]">
+                  <p className="py-3 text-[#222]">
                     Lorem ipsum dolor sit amet, consect adipiscing elit.
                   </p>
                 </div>
@@ -123,7 +126,7 @@ const Section = ({
   <section className="max-w-311.25 mx-auto text-center">
     <div className="mt-17.5 mb-12.5 max-md:my-10">
       <h2 className="text-4xl font-bold">{title}</h2>
-      <div className="text-[15px] text-[#8D9199]">{subtitle}</div>
+      <div className="text-[#8D9199]">{subtitle}</div>
     </div>
     {children}
   </section>

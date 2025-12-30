@@ -1,11 +1,9 @@
+import { IDestination } from "@/app/services/destinations/type";
 import Image from "next/image";
 import Link from "next/link";
-type props = {
-  id?: number;
-  title: string;
-  image: any;
-};
-const DestinationCard = ({ id, title, image }: props) => {
+
+const DestinationCard = (props: IDestination) => {
+  const { id, thumbnailUrl, name, title } = props;
   return (
     <Link
       href={`/destinations/${id}`}
@@ -16,21 +14,17 @@ const DestinationCard = ({ id, title, image }: props) => {
        max-md:h-45
       "
     >
-      <Image
-        src={image}
-        alt="card"
-        fill
-        className="object-cover brightness-[0.8]"
-      />
+      {thumbnailUrl && (
+        <Image
+          src={thumbnailUrl}
+          alt="card"
+          fill
+          className="object-cover brightness-[0.8]"
+        />
+      )}
 
-      <h2
-        className="
-          absolute bottom-0 left-0
-          px-3.75 pb-3.75 pt-1.25
-          text-white font-extrabold
-        "
-      >
-        {title}
+      <h2 className="absolute bottom-0 left-0 px-3.75 pb-3.75 pt-1.25 text-white font-extrabold text-2xl">
+        {name}
       </h2>
     </Link>
   );

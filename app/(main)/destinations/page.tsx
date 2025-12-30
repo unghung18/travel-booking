@@ -1,9 +1,11 @@
+import DestinationList from "@/app/(main)/destinations/DestinationList";
+import DestinationListLoading from "@/app/(main)/destinations/DestinationListLoading";
 import DestinationBg from "@/app/assets/destination-bg.jpg";
 import BgHeader from "@/app/components/BgHeader";
-import DestinationCard from "@/app/components/DestinationCard";
-import { destinationData } from "@/constant";
+import { SearchParams } from "@/app/types";
+import { Suspense } from "react";
 
-const Page = () => {
+const Page = ({ searchParams }: { searchParams: SearchParams }) => {
   return (
     <div>
       <BgHeader
@@ -13,14 +15,11 @@ const Page = () => {
         imageFile={DestinationBg}
         type="VIDEO"
       />
-      <div className="max-w-311.25 mx-auto px-22.5 max-md:px-7.5 text-center mt-10">
-        <div className="grid grid-cols-12 gap-10">
-          <div className="col-span-9 grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-2 gap-5">
-            {destinationData.map((item, idx) => (
-              <DestinationCard key={idx} {...item} />
-            ))}
-          </div>
-          <div className="col-span-3 bg-red-500">a</div>
+      <div className="px-22.5 max-md:px-7.5">
+        <div className="max-w-311.25 mx-auto text-center mt-10">
+          <Suspense fallback={<DestinationListLoading length={12} />}>
+            <DestinationList searchParams={searchParams} />
+          </Suspense>
         </div>
       </div>
     </div>
