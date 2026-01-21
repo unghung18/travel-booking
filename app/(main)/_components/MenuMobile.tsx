@@ -1,8 +1,8 @@
 "use client";
 
+import { useAppDispatch, useAppSelector } from "@/app/redux/hooks";
+import { toggle } from "@/app/redux/slices/toggleMenuSlice";
 import { useEffect, useRef } from "react";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { toggle } from "../redux/slices/toggleMenuSlice";
 
 const MenuMobile = () => {
   const menuRef = useRef<HTMLDivElement | null>(null);

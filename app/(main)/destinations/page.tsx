@@ -1,7 +1,7 @@
-import DestinationList from "@/app/(main)/destinations/DestinationList";
-import DestinationListLoading from "@/app/(main)/destinations/DestinationListLoading";
+import BgHeader from "@/app/(main)/_components/BgHeader";
+import DestinationList from "@/app/(main)/destinations/_components/DestinationList";
+import DestinationListLoading from "@/app/(main)/destinations/_components/DestinationListLoading";
 import DestinationBg from "@/app/assets/destination-bg.jpg";
-import BgHeader from "@/app/components/BgHeader";
 import { SearchParams } from "@/app/types";
 import { Suspense } from "react";
 

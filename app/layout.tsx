@@ -1,6 +1,6 @@
+import MenuMobile from "@/app/(main)/_components/MenuMobile";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import MenuMobile from "./components/MenuMobile";
 import ReduxProvider from "./redux/provider";
 import "./styles/globals.css";
 

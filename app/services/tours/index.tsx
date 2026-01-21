@@ -2,7 +2,7 @@ import { ITour } from "@/app/services/tours/type";
 import { BaseResponse, CommonSearch, IID, PageResponse } from "@/app/types";
 import { fetcher } from "@/lib/fetcher";
 
-const BASE_URL = "/tours";
+const BASE_URL = "/api/tours";
 
 export const TourService = {
   getPopular: (params: Partial<CommonSearch>) =>

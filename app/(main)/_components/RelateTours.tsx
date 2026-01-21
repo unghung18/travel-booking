@@ -1,4 +1,4 @@
-import TripCard from "@/app/components/TripCard";
+import TripCard from "@/app/(main)/_components/TripCard";
 import { TourService } from "@/app/services/tours";
 
 const RelateTours = async () => {

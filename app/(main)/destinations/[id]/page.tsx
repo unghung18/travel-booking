@@ -1,8 +1,8 @@
+import BgHeader from "@/app/(main)/_components/BgHeader";
+import RelateTours from "@/app/(main)/_components/RelateTours";
 import DestinationBg from "@/app/assets/destination-bg.jpg";
-import BgHeader from "@/app/components/BgHeader";
-import { BookmarkIcon } from "@/app/components/icons/BookMarkIcon";
-import RelateTours from "@/app/components/RelateTours";
 import { DestinationService } from "@/app/services/destinations";
+import { BookmarkIcon } from "lucide-react";
 import { notFound } from "next/navigation";
 
 interface PageProps {

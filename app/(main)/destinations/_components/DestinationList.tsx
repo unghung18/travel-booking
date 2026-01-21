@@ -1,5 +1,5 @@
-import CorePagination from "@/app/components/atoms/CorePagination";
-import DestinationCard from "@/app/components/DestinationCard";
+import CorePagination from "@/app/(main)/_components/atoms/CorePagination";
+import DestinationCard from "@/app/(main)/_components/DestinationCard";
 import { DestinationService } from "@/app/services/destinations";
 import { SearchParams } from "@/app/types";
 

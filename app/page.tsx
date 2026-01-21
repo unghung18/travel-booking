@@ -6,13 +6,12 @@ import feature2 from "@/app/assets/feature2.png";
 import feature3 from "@/app/assets/feature3.png";
 import photo from "@/app/assets/photo.jpg";
 
+import ArticleCard from "@/app/(main)/_components/ArticleCard";
+import DestinationCard from "@/app/(main)/_components/DestinationCard";
+import Footer from "@/app/(main)/_components/Footer";
+import Navbar from "@/app/(main)/_components/Navbar";
+import StandardForm from "@/app/(main)/_components/StandardForm";
 import { DestinationService } from "@/app/services/destinations";
-import { articleData } from "@/constant";
-import ArticleCard from "./components/ArticleCard";
-import DestinationCard from "./components/DestinationCard";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import StandardForm from "./components/StandardForm";
 
 export default async function Home() {
   const destinations = await DestinationService.getPopular({
@@ -98,7 +97,7 @@ export default async function Home() {
             subtitle="Explore some of the best tips from around the world"
           >
             <div className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
-              {articleData.map((item, i) => (
+              {[].map((item, i) => (
                 <ArticleCard key={i} data={item} />
               ))}
             </div>
