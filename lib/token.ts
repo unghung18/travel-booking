@@ -14,7 +14,7 @@ export const getUserIdToken = () => {
 
 export const getCmsToken = (): any | null => {
   try {
-    return `eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodW5nIiwic3ViIjoicm9uZ2xvbjQiLCJleHAiOjE3NjcxMDEyMjYsImlhdCI6MTc2NzAxNDgyNiwidXNlcklkIjo5NTJ9.86jHXtn7QFc8tZ8DfERq_9UkAOTV-Zo9OAu8wTmUpmhMAhaeGwtgwO8YCPGevWJEdLtKRWCDER6m-7J1fZTaCw`;
+    return `eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodW5nIiwic3ViIjoicm9uZ2xvbjQiLCJleHAiOjE3NjcxODc4NjcsImlhdCI6MTc2NzEwMTQ2NywidXNlcklkIjo5NTJ9.faGICKAUQKVtWSIo_jolj318fdox4Egp4Jdr_NIig0FWnyFnvgoMTWNMbphMc44Ui8u5fjKhC69m85JCXSswjw`;
   } catch (e) {
     console.warn("Token không phải là JSON hợp lệ:", e);
     return null;

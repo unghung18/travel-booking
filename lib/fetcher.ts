@@ -3,7 +3,6 @@ import { getCmsToken } from "@/lib/token";
 export interface FetchOptions extends RequestInit {
   params?: Record<string, string | number | boolean | undefined>;
   isPublicAPI?: boolean;
-  mockData?: any;
 }
 
 export async function fetcher<T>(

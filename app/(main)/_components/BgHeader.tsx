@@ -48,7 +48,7 @@ const BgHeader = ({ label, desc, imageFile, videoKey, type }: props) => {
       )}
 
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center text-white w-full max-w-356.25 mx-auto px-22.5 max-md:px-7.5">
-        <h1 className="text-4xl font-bold">{label}</h1>
+        <h1 className="text-[40px] font-bold">{label}</h1>
         {desc && <div className="mt-2 text-base opacity-90">{desc}</div>}
       </div>
     </div>
