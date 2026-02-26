@@ -1,5 +1,6 @@
 import { ITour } from "@/app/services/tours/type";
 import { BaseResponse, CommonSearch, IID, PageResponse } from "@/app/types";
+import { TOUR_DATA } from "@/constant";
 import { fetcher } from "@/lib/fetcher";
 
 const BASE_URL = "/api/tours";
@@ -9,6 +10,15 @@ export const TourService = {
     fetcher<PageResponse<ITour>>(BASE_URL + "/list", {
       method: "get",
       params,
+      mockData: {
+        code: 1000,
+        message: "Thành công!",
+        content: TOUR_DATA.slice(0, 4),
+        page: 0,
+        size: 2,
+        totalElements: 13,
+        totalPages: 7,
+      },
     }),
   getAll: (params: Partial<CommonSearch>) =>
     fetcher<PageResponse<ITour>>(BASE_URL + "/list", {

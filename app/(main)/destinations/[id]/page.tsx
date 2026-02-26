@@ -15,7 +15,8 @@ interface PageProps {
 const Page = async ({ params }: PageProps) => {
   const { id } = await params;
 
-  if (Number.isNaN(id)) {
+  const idNumber = Number(id);
+  if (Number.isNaN(idNumber)) {
     notFound();
   }
 
@@ -24,7 +25,7 @@ const Page = async ({ params }: PageProps) => {
   if (!destination) {
     notFound();
   }
-  console.log("first");
+  console.log("first", destination);
 
   return (
     <div>

@@ -1,7 +1,6 @@
-import { articleDataProps } from "@/constant";
 import Image from "next/image";
 
-const ArticleCard = ({ data }: { data: Partial<articleDataProps> }) => {
+const ArticleCard = ({ data }: { data: Partial<any> }) => {
   return (
     <div
       className="
