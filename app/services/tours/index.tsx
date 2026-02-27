@@ -13,7 +13,7 @@ export const TourService = {
       mockData: {
         code: 1000,
         message: "Thành công!",
-        content: TOUR_DATA.slice(0, 4),
+        content: TOUR_DATA.slice(0, 3),
         page: 0,
         size: 2,
         totalElements: 13,
@@ -25,6 +25,15 @@ export const TourService = {
       method: "get",
       params,
       cache: "no-cache",
+      mockData: {
+        code: 1000,
+        message: "Thành công!",
+        content: TOUR_DATA,
+        page: params.page,
+        size: params.size,
+        totalElements: 13,
+        totalPages: 2,
+      },
     }),
 
   getById: (id: number) =>

@@ -13,6 +13,7 @@ type props = {
 
 const BgHeader = ({ label, desc, imageFile, videoKey, type }: props) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
+
   return (
     <div className="w-full h-137.5 relative overflow-hidden">
       {type === "IMAGE" && imageFile && (
@@ -38,7 +39,7 @@ const BgHeader = ({ label, desc, imageFile, videoKey, type }: props) => {
           />
           <iframe
             className={clsx(
-              "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-screen min-h-screen w-[177.78vh] h-[100vw] pointer-events-none"
+              "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-screen min-h-screen w-[177.78vh] h-[100vw] pointer-events-none",
             )}
             src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoKey}&modestbranding=1&playsinline=1`}
             allow="autoplay"

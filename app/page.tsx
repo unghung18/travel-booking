@@ -69,6 +69,7 @@ export default async function Home() {
               ))} */}
             </div>
           </Section>
+
           <Section
             title="Why Choose Us"
             subtitle="Here are reasons you should plan trip with us"

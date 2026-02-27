@@ -1,8 +1,5 @@
-import RelateTours from "@/app/(main)/_components/RelateTours";
-import DestinationBg from "@/app/assets/destination-bg.jpg";
-import { DestinationService } from "@/app/services/destinations";
-import { BookmarkIcon } from "lucide-react";
-import Image from "next/image";
+import TourDetailPageHeader from "@/app/(main)/tours/_components/TourDetailPageHeader";
+import { TourService } from "@/app/services/tours";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -20,56 +17,21 @@ const Page = async ({ params }: PageProps) => {
     notFound();
   }
 
-  const destination = await DestinationService.getById(Number(id));
+  const tour = await TourService.getById(Number(id));
 
-  if (!destination) {
+  if (!tour) {
     notFound();
   }
-  console.log("first", destination);
 
   return (
     <div>
-      <div className="w-full h-137.5 relative overflow-hidden">
-        <Image
-          src={DestinationBg}
-          alt="bg-image"
-          className="w-full h-full bg-cover bg-no-repeat bg-center"
-        />
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center text-white w-full max-w-356.25 mx-auto px-22.5 max-md:px-7.5">
-          <h1 className="text-[40px] font-bold">{destination?.data?.name}</h1>
-        </div>
-      </div>
+      <TourDetailPageHeader imageUrl={tour?.data?.thumbnailUrl} />
 
       <div className="px-22.5 max-md:px-7.5">
         {/* Related Tour */}
         <div className="max-w-311.25 mx-auto mt-10">
-          <RelateTours />
-
           <div className="grid grid-cols-12 gap-10 mt-18 items-start">
-            <div className="col-span-8">
-              <div className="relative">
-                <BookmarkIcon
-                  className="absolute -translate-x-1/2 left-1/2 bg-white z-1 px-5"
-                  size={25}
-                />
-                <div className="absolute -translate-x-1/2 left-1/2 border-b border-b-[#FF4A52] min-w-80 top-3"></div>
-              </div>
-              <h2 className="mt-15 text-2xl font-semibold text-start leading-10">
-                {destination?.data?.title}
-              </h2>
-
-              <div className="space-y-7">
-                {(destination?.data?.sections ?? []).map((item) => {
-                  return (
-                    <div key={item?.id} className="mt-10">
-                      <h4 className="text-xl font-semibold">{item?.title}</h4>
-                      <p className="mt-5">{item?.description}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            <div className="col-span-8"></div>
 
             <div className="col-span-4 p-6 sticky top-20 rounded-sm space-y-8">
               <div className="border border-[#dce0e0] rounded-sm p-5">
