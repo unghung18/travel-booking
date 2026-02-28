@@ -24,7 +24,7 @@ const TourList = async ({ searchParams }: { searchParams: SearchParams }) => {
 
       <CorePagination
         totalElement={tours?.totalElements}
-        size={tours?.page}
+        size={tours.size}
         totalPages={tours?.totalPages}
         className="mt-10"
       />

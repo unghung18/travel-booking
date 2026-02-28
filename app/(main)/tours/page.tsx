@@ -1,5 +1,5 @@
-import DestinationListLoading from "@/app/(main)/destinations/_components/DestinationListLoading";
 import TourList from "@/app/(main)/tours/_components/TourList";
+import TourListLoading from "@/app/(main)/tours/_components/TourListLoading";
 import DestinationBg from "@/app/assets/destination-bg.jpg";
 import { SearchParams } from "@/app/types";
 import Image from "next/image";
@@ -21,7 +21,7 @@ const Page = ({ searchParams }: { searchParams: SearchParams }) => {
       </div>
       <div className="px-22.5 max-md:px-7.5">
         <div className="max-w-311.25 mx-auto text-center mt-10">
-          <Suspense fallback={<DestinationListLoading length={12} />}>
+          <Suspense fallback={<TourListLoading length={12} />}>
             <TourList searchParams={searchParams} />
           </Suspense>
         </div>

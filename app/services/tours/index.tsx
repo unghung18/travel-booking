@@ -39,6 +39,11 @@ export const TourService = {
   getById: (id: number) =>
     fetcher<BaseResponse<ITour>>(`${BASE_URL}/${id}`, {
       method: "get",
+      mockData: {
+        code: 1000,
+        message: "Thành công",
+        data: TOUR_DATA.find((item) => item?.id === id),
+      },
     }),
 
   create: (data: Partial<ITour>) =>

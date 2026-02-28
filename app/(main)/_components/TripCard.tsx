@@ -1,9 +1,11 @@
 import { ITour } from "@/app/services/tours/type";
 import Image from "next/image";
+import Link from "next/link";
 import RatingStart from "./RatingStar";
 
 const TripCard = (props: ITour) => {
   const {
+    id,
     durationDays,
     durationNights,
     name,
@@ -16,11 +18,14 @@ const TripCard = (props: ITour) => {
   const totalReview = (reviews ?? [])?.length ?? 0;
   const totalRating = (reviews ?? []).reduce(
     (sum, item) => sum + item.rating || 0,
-    0
+    0,
   );
 
   return (
-    <div className="border border-[#dce0e0] cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_22px_40px_rgba(0,0,0,0.15)] group">
+    <Link
+      href={`/tours/${id}`}
+      className="border border-[#dce0e0] cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_22px_40px_rgba(0,0,0,0.15)] group"
+    >
       {/* IMAGE */}
       <div className="relative w-full aspect-4/3">
         {thumbnailUrl && (
@@ -100,7 +105,7 @@ const TripCard = (props: ITour) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

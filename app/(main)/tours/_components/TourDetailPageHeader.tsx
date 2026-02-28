@@ -1,22 +1,43 @@
 "use client";
-import Image from "next/image";
+import useOverlay from "@/app/(main)/_components/hooks/useOverlay";
+import { Camera, Play } from "lucide-react";
 
 interface Props {
   imageUrl: string;
 }
 
 const TourDetailPageHeader = ({ imageUrl }: Props) => {
+  const { showOverlay, hideOverlay, Overlay } = useOverlay();
   return (
-    <div className="w-full h-137.5 relative overflow-hidden">
-      <Image
-        src={imageUrl}
-        alt="bg-image"
-        className="w-full h-full bg-cover bg-no-repeat bg-center"
+    <div className="relative w-full h-137.5 overflow-hidden">
+      {/* Background */}
+      <div
+        className="
+          absolute inset-0
+          bg-center bg-cover bg-no-repeat
+          will-change-transform
+        "
+        style={{ backgroundImage: `url(${imageUrl})` }}
       />
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center text-white w-full max-w-356.25 mx-auto px-22.5 max-md:px-7.5">
-        <h1 className="text-[40px] font-bold">Tour</h1>
+      {/* Overlay content */}
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-center text-white w-full max-w-285 flex gap-5">
+        <div
+          className="py-2.5 px-5.5 bg-black/20 flex items-center gap-2 text-sm"
+          onClick={() => showOverlay(<div>a</div>)}
+        >
+          <Camera size={16} />
+          Views Photos
+        </div>
+        <div
+          className="py-2.5 px-5.5 bg-black/20 flex items-center gap-2 text-sm"
+          onClick={() => showOverlay(<div>a</div>)}
+        >
+          <Play size={16} />
+          Video Preview
+        </div>
       </div>
+      <Overlay />
     </div>
   );
 };
