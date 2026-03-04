@@ -17,12 +17,12 @@ const MENU = [
     href: "/tours",
   },
   {
-    label: "Booking",
-    href: "/booking",
-  },
-  {
     label: "Destinations",
     href: "/destinations",
+  },
+  {
+    label: "Booking",
+    href: "/booking",
   },
   {
     label: "Pages",
@@ -42,24 +42,24 @@ const MENU = [
       },
     ],
   },
-  {
-    label: "Blog",
-    href: "/blog",
-    subMenus: [
-      {
-        label: "Home 1 – Background Image",
-        href: "",
-      },
-      {
-        label: "Home 1 – Background Image",
-        href: "",
-      },
-      {
-        label: "Home 1 – Background Image",
-        href: "",
-      },
-    ],
-  },
+  // {
+  //   label: "Blog",
+  //   href: "/blog",
+  //   subMenus: [
+  //     {
+  //       label: "Home 1 – Background Image",
+  //       href: "",
+  //     },
+  //     {
+  //       label: "Home 1 – Background Image",
+  //       href: "",
+  //     },
+  //     {
+  //       label: "Home 1 – Background Image",
+  //       href: "",
+  //     },
+  //   ],
+  // },
   {
     label: "Shop",
     href: "/shop",
@@ -116,17 +116,18 @@ const Navbar = () => {
           "transition-all duration-500 px-22.5 max-lg:px-7.5",
           scrollState === "top" && "bg-transparent",
           scrollState === "up" && "bg-white",
-          scrollState === "down" && "-translate-y-25 opacity-0"
+          scrollState === "down" && "-translate-y-25 opacity-0",
         )}
       >
         <div className="max-w-311.25 mx-auto flex justify-between items-center h-18.5">
           {/* LOGO */}
-          <div
+          <Link
+            href={"/"}
             className={clsx(
               "w-23 h-5.5 bg-cover transition-all",
               scrollState === "up"
                 ? "bg-[url('../assets/logo-black.png')]"
-                : "bg-[url('../assets/logo.png')]"
+                : "bg-[url('../assets/logo.png')]",
             )}
           />
 
@@ -148,8 +149,8 @@ const Navbar = () => {
                         isActive
                           ? "text-[#FF4A52]"
                           : scrollState === "up"
-                          ? "text-black"
-                          : "text-white"
+                            ? "text-black"
+                            : "text-white",
                       )}
                     >
                       {item?.label}
@@ -179,7 +180,7 @@ const Navbar = () => {
                           <Fragment key={idx}>
                             <li
                               className={clsx(
-                                "cursor-pointer block py-2.5 text-black text-left text-sm font-semibold no-underline transition-colors duration-200 hover:text-[#FF4A52]"
+                                "cursor-pointer block py-2.5 text-black text-left text-sm font-semibold no-underline transition-colors duration-200 hover:text-[#FF4A52]",
                               )}
                             >
                               {subMenu?.label}
@@ -203,7 +204,7 @@ const Navbar = () => {
               stroke="currentColor"
               className={clsx(
                 "w-5 h-5 ml-4 cursor-pointer",
-                scrollState === "up" ? "text-black" : "text-white"
+                scrollState === "up" ? "text-black" : "text-white",
               )}
               onClick={() => dispatch(toggle(true))}
             >
@@ -228,7 +229,7 @@ const Navbar = () => {
                 stroke="currentColor"
                 className={clsx(
                   "w-5 h-5 cursor-pointer",
-                  scrollState === "up" ? "text-black" : "text-white"
+                  scrollState === "up" ? "text-black" : "text-white",
                 )}
               >
                 <path

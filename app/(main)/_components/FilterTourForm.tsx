@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 
-const StandardForm = () => {
+const FilterTourForm = () => {
   const [advancedSearch, setAdvancedSearch] = useState(false);
 
   return (
-    <form className="px-5 py-5">
+    <form className="px-5 py-5 bg-white border border-solid border-[#e1e1e1] mb-12.5 shadow-[0_5px_40px_rgba(0,0,0,0.15)]">
       {/* MAIN FORM */}
       <div className="grid grid-cols-1 md:grid-cols-4 md:gap-4.5 mb-4.25">
         {/* Destination */}
-        <div className="relative bg-white rounded-[5px] min-w-30.75 ">
+        <div className="relative bg-white rounded-[5px] min-w-30.75  border border-solid border-[#dce0e0]">
           <input
             type="text"
             placeholder="Destination, city"
@@ -33,7 +33,7 @@ const StandardForm = () => {
         </div>
 
         {/* Month */}
-        <div className="relative bg-white rounded-[5px] min-w-30.75">
+        <div className="relative bg-white rounded-[5px] min-w-30.75  border border-solid border-[#dce0e0]">
           <select className="w-full p-2.5 text-[#555555] bg-transparent">
             <option>Any Month</option>
           </select>
@@ -69,9 +69,9 @@ const StandardForm = () => {
         </div>
 
         {/* Sort */}
-        <div className="relative bg-white rounded-[5px] min-w-30.7">
+        <div className="relative bg-white rounded-[5px] min-w-30.7  border border-solid border-[#dce0e0]">
           <select className="w-full p-2.5 text-[#555555] bg-transparent">
-            <option>Price Low to High</option>
+            <option>Sort By Date</option>
           </select>
 
           <svg
@@ -104,7 +104,7 @@ const StandardForm = () => {
           {["All Categorys", "Any Destinations"].map((label, idx) => (
             <div
               key={idx}
-              className="relative bg-white rounded-[5px] min-w-30.75"
+              className="relative bg-white rounded-[5px] min-w-30.75 border border-solid border-[#dce0e0]"
             >
               <select className="w-full p-2.5 text-[#555555] bg-transparent">
                 <option>{label}</option>
@@ -128,7 +128,7 @@ const StandardForm = () => {
           ))}
 
           {/* Max budget */}
-          <div className="relative bg-white rounded-[5px] min-w-30.75">
+          <div className="relative bg-white rounded-[5px] min-w-30.75  border border-solid border-[#dce0e0]">
             <input
               type="text"
               placeholder="Max budget ex. 500"
@@ -184,4 +184,4 @@ const StandardForm = () => {
   );
 };
 
-export default StandardForm;
+export default FilterTourForm;

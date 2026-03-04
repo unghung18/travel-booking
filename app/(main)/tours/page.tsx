@@ -4,6 +4,7 @@ import DestinationBg from "@/app/assets/destination-bg.jpg";
 import { SearchParams } from "@/app/types";
 import Image from "next/image";
 import { Suspense } from "react";
+import FilterTourForm from "../_components/FilterTourForm";
 
 const Page = ({ searchParams }: { searchParams: SearchParams }) => {
   return (
@@ -21,6 +22,8 @@ const Page = ({ searchParams }: { searchParams: SearchParams }) => {
       </div>
       <div className="px-22.5 max-md:px-7.5">
         <div className="max-w-311.25 mx-auto text-center mt-10">
+          <FilterTourForm />
+
           <Suspense fallback={<TourListLoading length={12} />}>
             <TourList searchParams={searchParams} />
           </Suspense>

@@ -13,11 +13,9 @@ const ArticleCard = ({ data }: { data: Partial<any> }) => {
       "
     >
       {data?.image && (
-        <Image
-          src={data.image}
-          alt="card"
-          className="object-cover w-full h-full"
-        />
+        <div className="relative w-full h-56">
+          <Image src={data.image} alt="card" fill className="object-cover" />
+        </div>
       )}
 
       <div className="px-7.5 py-5 text-left">

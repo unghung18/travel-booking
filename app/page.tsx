@@ -12,11 +12,24 @@ import Footer from "@/app/(main)/_components/Footer";
 import Navbar from "@/app/(main)/_components/Navbar";
 import StandardForm from "@/app/(main)/_components/StandardForm";
 import { DestinationService } from "@/app/services/destinations";
+import TripCard from "./(main)/_components/TripCard";
+import { BlogService } from "./services/blogs";
+import { TourService } from "./services/tours";
 
 export default async function Home() {
   const destinations = await DestinationService.getPopular({
     page: 0,
     size: 4,
+  });
+
+  const tours = await TourService.getPopular({
+    page: 0,
+    size: 3,
+  });
+
+  const blogs = await BlogService.getPopular({
+    page: 0,
+    size: 3,
   });
 
   return (
@@ -64,9 +77,9 @@ export default async function Home() {
             subtitle="Best offers trips from us"
           >
             <div className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
-              {/* {tripdata.map((item, i) => (
-                <TripCard key={i} data={item} />
-              ))} */}
+              {tours?.content?.map((item, idx) => (
+                <TripCard key={idx} {...item} />
+              ))}
             </div>
           </Section>
 
@@ -98,7 +111,7 @@ export default async function Home() {
             subtitle="Explore some of the best tips from around the world"
           >
             <div className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
-              {[].map((item, i) => (
+              {blogs?.content?.map((item, i) => (
                 <ArticleCard key={i} data={item} />
               ))}
             </div>

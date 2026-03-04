@@ -941,3 +941,33 @@ export const TOUR_DATA = [
     featured: false,
   },
 ];
+
+export const BLOG_DATA = [
+  {
+    id: 1,
+    title: "Memorial Day to Someone Told Me to Travel",
+    image:
+      "https://res.cloudinary.com/dwmz39exs/image/upload/v1772591974/photo-1469920783271-4ee08a94d42d-960x636_wnlzax.jpg",
+    time: "December 10, 2025",
+    content:
+      "Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache...",
+  },
+  {
+     id: 2,
+    title: "7 Tips For Nomads On A Budget Trips",
+    image:
+      "https://res.cloudinary.com/dwmz39exs/image/upload/v1772591939/pexels-photo-212388-960x636_pwhjuk.jpg",
+    time: "December 10, 2025",
+    content:
+      "Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache...",
+  },
+  {
+     id: 3,
+    title: "Taking A Travel Blog Victory Lap",
+    image:
+      "https://res.cloudinary.com/dwmz39exs/image/upload/v1772591939/pexels-photo-24484-960x636_bkxth5.jpg",
+    time: "December 10, 2025",
+    content:
+      "Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache...",
+  },
+];
