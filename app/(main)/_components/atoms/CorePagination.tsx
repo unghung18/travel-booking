@@ -10,7 +10,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { cn } from "@/lib/utils";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface IPaginationProps {
   totalElement: number;
@@ -27,6 +27,7 @@ const CorePagination = ({
 }: IPaginationProps) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const currentPage = Math.max(0, Number(searchParams.get("page")) || 0);
 
@@ -44,7 +45,9 @@ const CorePagination = ({
         {/* Prev */}
         <PaginationItem>
           <PaginationPrevious
-            href={createPageUrl(Math.max(0, currentPage - 1))}
+            onClick={() =>
+              router.push(createPageUrl(Math.max(0, currentPage - 1)))
+            }
             aria-disabled={currentPage === 0}
             className={
               currentPage === 0 ? "pointer-events-none opacity-50" : ""
@@ -64,12 +67,13 @@ const CorePagination = ({
             return (
               <PaginationItem key={page}>
                 <PaginationLink
-                  href={page === currentPage ? undefined : createPageUrl(page)}
                   isActive={page === currentPage}
                   aria-disabled={page === currentPage}
                   onClick={(e) => {
                     if (page === currentPage) {
                       e.preventDefault();
+                    } else {
+                      router.push(createPageUrl(page));
                     }
                   }}
                   className={
@@ -96,7 +100,9 @@ const CorePagination = ({
         {/* Next */}
         <PaginationItem>
           <PaginationNext
-            href={createPageUrl(Math.min(totalPages, currentPage + 1))}
+            onClick={() =>
+              router.push(createPageUrl(Math.min(totalPages, currentPage + 1)))
+            }
             aria-disabled={currentPage + 1 === totalPages}
             className={
               currentPage + 1 === totalPages

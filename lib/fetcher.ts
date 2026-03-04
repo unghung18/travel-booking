@@ -12,8 +12,8 @@ export async function fetcher<T>(
   const { params, headers, mockData, ...rest } = options;
 
   if (mockData !== undefined) {
-    console.log("🚀 Using mock data for:", url);
-    return Promise.resolve(mockData);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    return mockData as T;
   }
 
   const query = params
