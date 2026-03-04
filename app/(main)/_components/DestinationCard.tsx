@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const DestinationCard = (props: IDestination) => {
-  const { id, thumbnailUrl, name, title } = props;
+  const { id, thumbnailUrl, name } = props;
   return (
     <Link
       href={`/destinations/${id}`}

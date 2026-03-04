@@ -2,14 +2,19 @@ import { getCmsToken } from "@/lib/token";
 
 export interface FetchOptions extends RequestInit {
   params?: Record<string, string | number | boolean | undefined>;
-  isPublicAPI?: boolean;
+  mockData?: any;
 }
 
 export async function fetcher<T>(
   url: string,
-  options: FetchOptions = {}
+  options: FetchOptions = {},
 ): Promise<T> {
-  const { params, headers, ...rest } = options;
+  const { params, headers, mockData, ...rest } = options;
+
+  if (mockData !== undefined) {
+    console.log("🚀 Using mock data for:", url);
+    return Promise.resolve(mockData);
+  }
 
   const query = params
     ? "?" +
@@ -17,7 +22,7 @@ export async function fetcher<T>(
         .filter(([, value]) => value !== undefined)
         .map(
           ([key, value]) =>
-            `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`
+            `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`,
         )
         .join("&")
     : "";

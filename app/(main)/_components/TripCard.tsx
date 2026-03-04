@@ -16,7 +16,7 @@ const TripCard = (props: ITour) => {
   const totalReview = (reviews ?? [])?.length ?? 0;
   const totalRating = (reviews ?? []).reduce(
     (sum, item) => sum + item.rating || 0,
-    0
+    0,
   );
 
   return (
