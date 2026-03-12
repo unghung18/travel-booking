@@ -4,7 +4,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 export default function NotFound() {
   return (
     <>
-      <section className="py-16 md:py-20 bg-[linear-gradient(238deg,#faf8f1,#f6f3ef_99.66%)]">
+      <section className="py-16 md:py-20 bg-[linear-gradient(238deg,#faf8f1,#f6f3ef_99.66%)] w-screen h-screen">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
           {/* Image */}
           <div className="w-full md:w-1/2">

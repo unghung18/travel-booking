@@ -17,20 +17,18 @@ import { BlogService } from "./services/blogs";
 import { TourService } from "./services/tours";
 
 export default async function Home() {
-  const destinations = await DestinationService.getPopular({
-    page: 0,
-    size: 4,
-  });
+  const results = await Promise.allSettled([
+    DestinationService.getPopular({ page: 0, size: 4 }),
+    TourService.getPopular({ page: 0, size: 3 }),
+    BlogService.getPopular({ page: 0, size: 3 }),
+  ]);
 
-  const tours = await TourService.getPopular({
-    page: 0,
-    size: 3,
-  });
+  const destinations =
+    results[0].status === "fulfilled" ? results[0].value : null;
 
-  const blogs = await BlogService.getPopular({
-    page: 0,
-    size: 3,
-  });
+  const tours = results[1].status === "fulfilled" ? results[1].value : null;
+
+  const blogs = results[2].status === "fulfilled" ? results[2].value : null;
 
   return (
     <div className="relative">

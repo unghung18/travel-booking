@@ -4,13 +4,17 @@ import DestinationListLoading from "@/app/(main)/destinations/_components/Destin
 import { SearchParams } from "@/app/types";
 import { Suspense } from "react";
 
-const Page = ({ searchParams }: { searchParams: SearchParams }) => {
+const Page = async ({ searchParams }: { searchParams: SearchParams }) => {
+  const params = await searchParams;
   return (
     <div>
       <DestinationDetailPageHeader />
       <div className="px-22.5 max-md:px-7.5">
         <div className="max-w-311.25 mx-auto text-center mt-10">
-          <Suspense fallback={<DestinationListLoading length={12} />}>
+          <Suspense
+            key={JSON.stringify(params)}
+            fallback={<DestinationListLoading length={12} />}
+          >
             <DestinationList searchParams={searchParams} />
           </Suspense>
         </div>
